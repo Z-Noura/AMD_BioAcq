@@ -4,18 +4,18 @@ Tool Name:
   c:\program files\microchip\xc16\v2.10\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -TC:\\Users\\Noura\\AppData\\Local\\Temp\\tmp0000a41c.00 \
-  -TC:\\Users\\Noura\\AppData\\Local\\Temp\\tmp0000a41c.01 \
-  -TC:\\Users\\Noura\\AppData\\Local\\Temp\\tmp0000a41c.02 \
-  -TC:\\Users\\Noura\\AppData\\Local\\Temp\\tmp0000a41c.03 \
-  -TC:\\Users\\Noura\\AppData\\Local\\Temp\\tmp0000a41c.04 \
+  -TC:\\Users\\airko\\AppData\\Local\\Temp\\tmp00001cb4.00 \
+  -TC:\\Users\\airko\\AppData\\Local\\Temp\\tmp00001cb4.01 \
+  -TC:\\Users\\airko\\AppData\\Local\\Temp\\tmp00001cb4.02 \
+  -TC:\\Users\\airko\\AppData\\Local\\Temp\\tmp00001cb4.03 \
+  -TC:\\Users\\airko\\AppData\\Local\\Temp\\tmp00001cb4.04 \
   -p33FJ128GP804 \
-  --mdfp=C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/dsPIC33F-GP-MC_DFP/1.4.235/xc16 \
+  --mdfp=C:/Users/airko/.mchp_packs/Microchip/dsPIC33F-GP-MC_DFP/1.4.235/xc16 \
   -o \
   dist/default/debug/AMD_Flash.X.debug.elf \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/.. \
-  -LC:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/dsPIC33F-GP-MC_DFP/1.4.235/xc16/bin/../support/PIC24H/gld \
-  -LC:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/dsPIC33F-GP-MC_DFP/1.4.235/xc16/bin/../support/dsPIC33F/gld \
+  -LC:/Users/airko/.mchp_packs/Microchip/dsPIC33F-GP-MC_DFP/1.4.235/xc16/bin/../support/PIC24H/gld \
+  -LC:/Users/airko/.mchp_packs/Microchip/dsPIC33F-GP-MC_DFP/1.4.235/xc16/bin/../support/dsPIC33F/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../lib \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/PIC24E/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/PIC24F/gld \
@@ -24,8 +24,8 @@ Command:
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33C/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33F/gld \
-  build/default/debug/_ext/1889744778/Flash.o \
-  build/default/debug/_ext/1889744778/main.o \
+  build/default/debug/Flash.o \
+  build/default/debug/main.o \
   --defsym=__MPLAB_BUILD=1 \
   --defsym=__MPLAB_DEBUG=1 \
   --defsym=__DEBUG=1 \
@@ -74,10 +74,10 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xfe           0x17d  (381)
-.text                        0x2fe               0x362           0x513  (1299)
-.dinit                       0x660                 0x8             0xc  (12)
+.text                        0x2fe               0x364           0x516  (1302)
+.dinit                       0x662                 0x8             0xc  (12)
 
-                 Total "program" memory used (bytes):          0x69c  (1692) 1%
+                 Total "program" memory used (bytes):          0x69f  (1695) 1%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x4000]
@@ -128,43 +128,43 @@ External Symbols in Program Memory (by address):
                   0x0002fe                  _delay_30us
                   0x000316                  _delay_us
                   0x000336                  _FlashSendByte
-                  0x00036e                  _FlashID
-                  0x00039c                  _FlashWriteBuffer
-                  0x0003ea                  _FlashRecvBuffer
-                  0x00043e                  _FlashRecvFastBuffer
-                  0x000492                  _FlashRecvByte
-                  0x00049c                  _FlashReset
-                  0x0004b8                  _FlashInit
-                  0x0004d6                  _setupClock
-                  0x000534                  _SetupSPI1Register
-                  0x000564                  _SetupSPI2Register
-                  0x000584                  _SetupADC
-                  0x00058a                  _SetupFlashPins
-                  0x00059c                  _SetupRPIPins
-                  0x0005a2                  _ConnectSPI1ToFlash
-                  0x0005d4                  _ConnectSPI1ToRPI
-                  0x0005da                  _InitFlash
-                  0x0005e4                  _setup_delay
-                  0x0005fa                  _main
+                  0x000364                  _FlashID
+                  0x00038a                  _FlashWriteBuffer
+                  0x0003dc                  _FlashRecvBuffer
+                  0x000432                  _FlashRecvFastBuffer
+                  0x000486                  _FlashRecvByte
+                  0x000490                  _FlashReset
+                  0x0004ac                  _FlashInit
+                  0x0004ca                  _setupClock
+                  0x000528                  _SetupSPI1Register
+                  0x000558                  _SetupSPI2Register
+                  0x00058a                  _SetupADC
+                  0x000590                  _SetupFlashPins
+                  0x0005a2                  _SetupRPIPins
+                  0x0005a8                  _ConnectSPI1ToFlash
+                  0x0005da                  _ConnectSPI1ToRPI
+                  0x0005e0                  _InitFlash
+                  0x0005ea                  _setup_delay
+                  0x000600                  _main
 
 External Symbols in Program Memory (by name):
 
-                  0x0005a2                  _ConnectSPI1ToFlash
-                  0x0005d4                  _ConnectSPI1ToRPI
-                  0x00036e                  _FlashID
-                  0x0004b8                  _FlashInit
-                  0x0003ea                  _FlashRecvBuffer
-                  0x000492                  _FlashRecvByte
-                  0x00043e                  _FlashRecvFastBuffer
-                  0x00049c                  _FlashReset
+                  0x0005a8                  _ConnectSPI1ToFlash
+                  0x0005da                  _ConnectSPI1ToRPI
+                  0x000364                  _FlashID
+                  0x0004ac                  _FlashInit
+                  0x0003dc                  _FlashRecvBuffer
+                  0x000486                  _FlashRecvByte
+                  0x000432                  _FlashRecvFastBuffer
+                  0x000490                  _FlashReset
                   0x000336                  _FlashSendByte
-                  0x00039c                  _FlashWriteBuffer
-                  0x0005da                  _InitFlash
-                  0x000584                  _SetupADC
-                  0x00058a                  _SetupFlashPins
-                  0x00059c                  _SetupRPIPins
-                  0x000534                  _SetupSPI1Register
-                  0x000564                  _SetupSPI2Register
+                  0x00038a                  _FlashWriteBuffer
+                  0x0005e0                  _InitFlash
+                  0x00058a                  _SetupADC
+                  0x000590                  _SetupFlashPins
+                  0x0005a2                  _SetupRPIPins
+                  0x000528                  _SetupSPI1Register
+                  0x000558                  _SetupSPI2Register
                   0x0002f8                  __DefaultInterrupt
                   0x0002c8                  __SPI1Interrupt
                   0x0002e0                  __T4Interrupt
@@ -174,9 +174,9 @@ External Symbols in Program Memory (by name):
                   0x000200                  __resetPRI
                   0x0002fe                  _delay_30us
                   0x000316                  _delay_us
-                  0x0005fa                  _main
-                  0x0004d6                  _setupClock
-                  0x0005e4                  _setup_delay
+                  0x000600                  _main
+                  0x0004ca                  _setupClock
+                  0x0005ea                  _setup_delay
 
 Memory Configuration
 
@@ -228,8 +228,8 @@ reserve_data_0x826
                     0x0826         0x2a
                     0x0850                  . = 0x2a
  *fill*             0x0826         0x2a00
-LOAD build/default/debug/_ext/1889744778/Flash.o
-LOAD build/default/debug/_ext/1889744778/main.o
+LOAD build/default/debug/Flash.o
+LOAD build/default/debug/main.o
                     0x0001                  __MPLAB_BUILD = 0x1
                     0x0001                  __MPLAB_DEBUG = 0x1
                     0x0001                  __DEBUG = 0x1
@@ -276,7 +276,7 @@ LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8         0x30 build/default/debug/_ext/1889744778/Flash.o
+ .isr.text        0x0002c8         0x30 build/default/debug/Flash.o
                   0x0002c8                  __SPI1Interrupt
                   0x0002e0                  __T4Interrupt
  .isr             0x0002f8          0x4 default_isr
@@ -332,31 +332,31 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x2777
+.debug_info       0x000000       0x27c1
  *(.debug_info)
- .debug_info      0x000000        0xb2c build/default/debug/_ext/1889744778/Flash.o
- .debug_info      0x000b2c       0x1c4b build/default/debug/_ext/1889744778/main.o
+ .debug_info      0x000000        0xb48 build/default/debug/Flash.o
+ .debug_info      0x000b48       0x1c79 build/default/debug/main.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x295
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x180 build/default/debug/_ext/1889744778/Flash.o
- .debug_abbrev    0x000180        0x115 build/default/debug/_ext/1889744778/main.o
+ .debug_abbrev    0x000000        0x180 build/default/debug/Flash.o
+ .debug_abbrev    0x000180        0x115 build/default/debug/main.o
 
-.debug_line       0x000000        0x311
+.debug_line       0x000000        0x2b9
  *(.debug_line)
- .debug_line      0x000000        0x192 build/default/debug/_ext/1889744778/Flash.o
- .debug_line      0x000192        0x17f build/default/debug/_ext/1889744778/main.o
+ .debug_line      0x000000        0x164 build/default/debug/Flash.o
+ .debug_line      0x000164        0x155 build/default/debug/main.o
 
 .debug_frame      0x000000        0x2ae
  *(.debug_frame)
- .debug_frame     0x000000        0x17c build/default/debug/_ext/1889744778/Flash.o
- .debug_frame     0x00017c        0x132 build/default/debug/_ext/1889744778/main.o
+ .debug_frame     0x000000        0x17c build/default/debug/Flash.o
+ .debug_frame     0x00017c        0x132 build/default/debug/main.o
 
 .debug_str        0x000000        0x117
  *(.debug_str)
- .debug_str       0x000000         0x58 build/default/debug/_ext/1889744778/Flash.o
- .debug_str       0x000058         0xbf build/default/debug/_ext/1889744778/main.o
+ .debug_str       0x000000         0x58 build/default/debug/Flash.o
+ .debug_str       0x000058         0xbf build/default/debug/main.o
 
 .debug_loc
  *(.debug_loc)
@@ -368,9 +368,9 @@ __FUID3
                   0x000000        0x1d0
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0xff build/default/debug/_ext/1889744778/Flash.o
+                  0x000000         0xff build/default/debug/Flash.o
  .debug_pubnames
-                  0x0000ff         0xd1 build/default/debug/_ext/1889744778/main.o
+                  0x0000ff         0xd1 build/default/debug/main.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -378,9 +378,9 @@ __FUID3
 .debug_aranges    0x000000         0x30
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/debug/_ext/1889744778/Flash.o
+                  0x000000         0x18 build/default/debug/Flash.o
  .debug_aranges
-                  0x000018         0x18 build/default/debug/_ext/1889744778/main.o
+                  0x000018         0x18 build/default/debug/main.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1385,66 +1385,66 @@ LOAD data_init
 .debug_pubtypes
                   0x000030        0x34f
  .debug_pubtypes
-                  0x000030         0xd3 build/default/debug/_ext/1889744778/Flash.o
+                  0x000030         0xd3 build/default/debug/Flash.o
  .debug_pubtypes
-                  0x000103        0x27c build/default/debug/_ext/1889744778/main.o
+                  0x000103        0x27c build/default/debug/main.o
 
 __c30_signature
                   0x00037f         0x18
  __c30_signature
-                  0x00037f          0x6 build/default/debug/_ext/1889744778/Flash.o
+                  0x00037f          0x6 build/default/debug/Flash.o
  __c30_signature
-                  0x000385          0x6 build/default/debug/_ext/1889744778/main.o
+                  0x000385          0x6 build/default/debug/main.o
  __c30_signature
                   0x00038b          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
  __c30_signature
                   0x000391          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(data_init_standard.o)
 
 .nbss               0x0850          0x2
- .nbss              0x0850          0x2 build/default/debug/_ext/1889744778/Flash.o
+ .nbss              0x0850          0x2 build/default/debug/Flash.o
                     0x0850                  _buffer_flag
                     0x0851                  _timer_flag
 
 .ivt._SPI1Interrupt
                   0x000028          0x2
  .ivt._SPI1Interrupt
-                  0x000028          0x2 build/default/debug/_ext/1889744778/Flash.o
+                  0x000028          0x2 build/default/debug/Flash.o
 
 .ivt._T4Interrupt
                   0x00004a          0x2
  .ivt._T4Interrupt
-                  0x00004a          0x2 build/default/debug/_ext/1889744778/Flash.o
+                  0x00004a          0x2 build/default/debug/Flash.o
 
 .config_FCKSM     0xf80008          0x2
- .config_FCKSM    0xf80008          0x2 build/default/debug/_ext/1889744778/main.o
+ .config_FCKSM    0xf80008          0x2 build/default/debug/main.o
 
 .config_IESO      0xf80006          0x2
- .config_IESO     0xf80006          0x2 build/default/debug/_ext/1889744778/main.o
+ .config_IESO     0xf80006          0x2 build/default/debug/main.o
 
-.text             0x0002fe        0x362
- .text            0x0002fe        0x1d8 build/default/debug/_ext/1889744778/Flash.o
+.text             0x0002fe        0x364
+ .text            0x0002fe        0x1cc build/default/debug/Flash.o
                   0x0002fe                  _delay_30us
                   0x000316                  _delay_us
                   0x000336                  _FlashSendByte
-                  0x00036e                  _FlashID
-                  0x00039c                  _FlashWriteBuffer
-                  0x0003ea                  _FlashRecvBuffer
-                  0x00043e                  _FlashRecvFastBuffer
-                  0x000492                  _FlashRecvByte
-                  0x00049c                  _FlashReset
-                  0x0004b8                  _FlashInit
- .text            0x0004d6        0x18a build/default/debug/_ext/1889744778/main.o
-                  0x0004d6                  _setupClock
-                  0x000534                  _SetupSPI1Register
-                  0x000564                  _SetupSPI2Register
-                  0x000584                  _SetupADC
-                  0x00058a                  _SetupFlashPins
-                  0x00059c                  _SetupRPIPins
-                  0x0005a2                  _ConnectSPI1ToFlash
-                  0x0005d4                  _ConnectSPI1ToRPI
-                  0x0005da                  _InitFlash
-                  0x0005e4                  _setup_delay
-                  0x0005fa                  _main
+                  0x000364                  _FlashID
+                  0x00038a                  _FlashWriteBuffer
+                  0x0003dc                  _FlashRecvBuffer
+                  0x000432                  _FlashRecvFastBuffer
+                  0x000486                  _FlashRecvByte
+                  0x000490                  _FlashReset
+                  0x0004ac                  _FlashInit
+ .text            0x0004ca        0x198 build/default/debug/main.o
+                  0x0004ca                  _setupClock
+                  0x000528                  _SetupSPI1Register
+                  0x000558                  _SetupSPI2Register
+                  0x00058a                  _SetupADC
+                  0x000590                  _SetupFlashPins
+                  0x0005a2                  _SetupRPIPins
+                  0x0005a8                  _ConnectSPI1ToFlash
+                  0x0005da                  _ConnectSPI1ToRPI
+                  0x0005e0                  _InitFlash
+                  0x0005ea                  _setup_delay
+                  0x000600                  _main
 
-.dinit            0x000660          0x8
- .dinit           0x000660          0x8 data_init
+.dinit            0x000662          0x8
+ .dinit           0x000662          0x8 data_init

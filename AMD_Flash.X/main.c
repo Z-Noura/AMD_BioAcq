@@ -27,7 +27,6 @@ void SetupFlashPins(void);
 void SetupRPIPins(void);
 void ConnectSPI1ToFlash(void);
 void ConnectSPI1ToRPI(void);
-void SetupSPI1IOPins(void);
 void InitFlash(void);
 
 #pragma config FNOSC = FRC              // Oscillator Mode (Internal Fast RC (FRC))
@@ -125,7 +124,6 @@ inline void SetupSPI1Register(void) {
     // Fsck = Fcy / ( Primary Prescaler * Secondary Prescaler )
     SPI1CON1bits.PPRE = 2;    // Primary   prescaler 1:1
     SPI1CON1bits.SPRE = 0;     // Secondary prescaler 8:1
-    // Fsck = 40MHz / 32 = 1.2 MHz < 133 Mhz
     
     //SPI1STAT Register Settings
     SPI1CON1bits.MSTEN = 1;     // Master mode Enabled
@@ -204,7 +202,7 @@ inline void InitFlash(void) {
     FlashInit();
 }
 
-void setup_delay(void){
+void setupDelay(void){
     T4CONbits.T32  = 0;
     T4CONbits.TCKPS = 0;
     T4CONbits.TGATE = 0;
@@ -213,22 +211,17 @@ void setup_delay(void){
 }
 
 
-
-
-
 int main(void) {
-    setup_delay();
     
     // LED STATUS
     TRISBbits.TRISB6 = 0;
     LATBbits.LATB6 = 1;
     
-    // Debug Pin For SPI Step
-    TRISBbits.TRISB7 = 1;
-    
-    
     // Setup the Clock
     setupClock();
+    
+    // Setup T4 Timer for SPI delays
+    setupDelay();
     
     // Setup SPI Modules
     SetupSPI1Register();
@@ -242,20 +235,20 @@ int main(void) {
     // Setup RPI SPI-pins I/O
     SetupRPIPins();
     
+    // Should Setup ADC SPI pins
+    
+    
     // Connect SPI1 Module pins to dsPIC I/O pins
     ConnectSPI1ToFlash();
     
-    // Verify spi
-    
+    // Verify SPI Communication (Signal Analysis based, 
+    // we could check that the Manufacturer ID is 0xEF)
+    FlashID();
     
     // Send Setup Instructions To Flash
     InitFlash();
     
-    FlashID();
-   
-    // DEPRECATED : Setup the pins used by the SPI
-    // SetupSPI1IOPins();
-    
+    // Send data with known patterns
     uint32_t addr = 0xFF123456;
     uint16_t page;
     uint8_t offset;
@@ -266,10 +259,12 @@ int main(void) {
     
     FlashWriteBuffer(addr, (char*)buffer, 5);
     
+    // Try to read the data sent just before
     char rcvBuffer[5] = {0};
-    
     FlashRecvBuffer(addr, (char*)rcvBuffer, 5);
     
+    
+    // Wait forever
     for (;;)
     {
         Nop();

@@ -7,9 +7,14 @@
             <creation-uuid>707988c1-1523-4118-adfd-167c446cac2d</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions>h</header-extensions>
+            <asminc-extensions/>
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../../Downloads/Sacha</sourceRootElem>
+                <sourceRootElem/>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -44,6 +44,12 @@ else
 COMPARISON_BUILD=
 endif
 
+ifdef SUB_IMAGE_ADDRESS
+SUB_IMAGE_ADDRESS_COMMAND=--image-address $(SUB_IMAGE_ADDRESS)
+else
+SUB_IMAGE_ADDRESS_COMMAND=
+endif
+
 # Object Directory
 OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 
@@ -51,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../Downloads/Sacha/Flash.c ../../Downloads/Sacha/main.c
+SOURCEFILES_QUOTED_IF_SPACED=Flash.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1889744778/Flash.o ${OBJECTDIR}/_ext/1889744778/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1889744778/Flash.o.d ${OBJECTDIR}/_ext/1889744778/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Flash.o ${OBJECTDIR}/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Flash.o.d ${OBJECTDIR}/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1889744778/Flash.o ${OBJECTDIR}/_ext/1889744778/main.o
+OBJECTFILES=${OBJECTDIR}/Flash.o ${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=../../Downloads/Sacha/Flash.c ../../Downloads/Sacha/main.c
+SOURCEFILES=Flash.c main.c
 
 
 
@@ -89,30 +95,30 @@ MP_LINKER_FILE_OPTION=,--script=p33FJ128GP804.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1889744778/Flash.o: ../../Downloads/Sacha/Flash.c  .generated_files/flags/default/9c517e69aa35b259d70f850a3de309d5cdb0827d .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/_ext/1889744778" 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/Flash.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/Flash.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../Downloads/Sacha/Flash.c  -o ${OBJECTDIR}/_ext/1889744778/Flash.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1889744778/Flash.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+${OBJECTDIR}/Flash.o: Flash.c  .generated_files/flags/default/cc8124bece0bc614e4375a95a4e2f3368decd3fa .generated_files/flags/default/2e21226124d3283783347ae9fbe6dcf4c043cd7d
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Flash.o.d 
+	@${RM} ${OBJECTDIR}/Flash.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Flash.c  -o ${OBJECTDIR}/Flash.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Flash.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/_ext/1889744778/main.o: ../../Downloads/Sacha/main.c  .generated_files/flags/default/b9be3ec01f0b809d25b1f4b81bf976975a4c1309 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/_ext/1889744778" 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../Downloads/Sacha/main.c  -o ${OBJECTDIR}/_ext/1889744778/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1889744778/main.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/f3c0de699da2d20e53a9ded0c46c070803b53728 .generated_files/flags/default/2e21226124d3283783347ae9fbe6dcf4c043cd7d
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 else
-${OBJECTDIR}/_ext/1889744778/Flash.o: ../../Downloads/Sacha/Flash.c  .generated_files/flags/default/374709f6e6a9ee740714b01878f89ddc4cc61d01 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/_ext/1889744778" 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/Flash.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/Flash.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../Downloads/Sacha/Flash.c  -o ${OBJECTDIR}/_ext/1889744778/Flash.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1889744778/Flash.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+${OBJECTDIR}/Flash.o: Flash.c  .generated_files/flags/default/9b8d469285a5075c3db61872e38ee3b5f81049ce .generated_files/flags/default/2e21226124d3283783347ae9fbe6dcf4c043cd7d
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Flash.o.d 
+	@${RM} ${OBJECTDIR}/Flash.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Flash.c  -o ${OBJECTDIR}/Flash.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Flash.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/_ext/1889744778/main.o: ../../Downloads/Sacha/main.c  .generated_files/flags/default/363484be49eb448396a0bbbf09d8aeb19a5b5721 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/_ext/1889744778" 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1889744778/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../Downloads/Sacha/main.c  -o ${OBJECTDIR}/_ext/1889744778/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1889744778/main.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/3862f1e20ebe4a2cccea6b785d926e7e99d4b473 .generated_files/flags/default/2e21226124d3283783347ae9fbe6dcf4c043cd7d
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 
@@ -159,7 +165,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(wildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

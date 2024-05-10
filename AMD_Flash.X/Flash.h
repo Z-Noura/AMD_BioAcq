@@ -43,31 +43,23 @@ extern "C" {
     #define FI_WRITE_STATUS_1   0x01
     #define FI_WRITE_STATUS_2   0x31
     #define FI_WRITE_STATUS_3   0x11
-    
-    
-    void __attribute__((__interrupt__,__auto_psv__)) _SPI1Interrupt();
-    
+
+
     // Send
     volatile uint8_t FlashSendByte(uint8_t instruction);
-    
-    void FlashID(void);
-    
     void FlashWriteBuffer(uint32_t address, char* buffer, uint16_t len);
-    void _delaySPI(int n);
     
     // Receive
     volatile uint8_t FlashRecvByte(void);
-    void FlashRecvFastBuffer(uint32_t address, char* buffer, uint16_t len);
     void FlashRecvBuffer(uint32_t address, char* buffer, uint16_t len);
+    void FlashRecvFastBuffer(uint32_t address, char* buffer, uint16_t len);
     
+    // Proof Of Communication
+    void FlashID(void);
     
     // Control
     void FlashReset(void);
     void FlashInit(void);
-    
-    void setupT4(void);
-    
-
 
 #ifdef	__cplusplus
 }
