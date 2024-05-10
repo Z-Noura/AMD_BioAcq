@@ -10,17 +10,6 @@
 #define FLASH_RPN_REPRESENTATION_SCK1 0b01000
 #define FLASH_RPN_REPRESENTATION_NSS1 0b01001
 
-
-// For Better SW architecture
-
-//typedef struct Flash {
-//    uint8_t DO;
-//    uint8_t DI;
-//    uint8_t CS;
-//    uint8_t CLK;
-//} FLASH, *PFLASH;
-
-
 typedef union addr {
     uint32_t addr_uint;
     struct addr_struct {
@@ -28,8 +17,6 @@ typedef union addr {
         uint8_t offset;
     };
 };
-
-// Move each to seperate files !!!!
 
 void setupClock(void);
 
@@ -42,15 +29,6 @@ void ConnectSPI1ToFlash(void);
 void ConnectSPI1ToRPI(void);
 void SetupSPI1IOPins(void);
 void InitFlash(void);
-
-
-
-//// 70216C.pdf:
-//// p25: Code Example for Using the PLL with the 7.37 MHz Internal FRC Oscillator
-//// Select Internal FRC at POR
-//_FOSCSEL(FNOSC_FRC);
-//// Enable Clock Switching and Configure
-//_FOSC(FCKSM_CSECMD & OSCIOFNC_OFF);
 
 #pragma config FNOSC = FRC              // Oscillator Mode (Internal Fast RC (FRC))
 #pragma config POSCMD = NONE            // Primary Oscillator Source (XT Oscillator Mode)
@@ -78,7 +56,7 @@ inline void setupClock(void) {
     // M / (N1*N2) = 65 / (3*2) = 10,83333
     // Fosc = 7.37 [MHz] * 10,83333 = 79,8416421 [MHz]
     
-    PLLFBDbits.PLLDIV = 6;
+    PLLFBDbits.PLLDIV = 63;
     CLKDIVbits.PLLPRE = 1;
     CLKDIVbits.PLLPOST = 0;
 
@@ -145,23 +123,24 @@ inline void SetupSPI1Register(void) {
     // 133MHz Single SPI
     // dsPIC -> "70206C - SPI Implementation.pdf" -> 18.4 MASTER MODE CLOCK FREQUENCY
     // Fsck = Fcy / ( Primary Prescaler * Secondary Prescaler )
-    SPI1CON1bits.PPRE = 2;      // Primary   prescaler 4:1
-    SPI1CON1bits.SPRE = 7;      // Secondary prescaler 1:1
-    // Fsck = 40MHz / 4 = 10 MHz < 133 Mhz
+    SPI1CON1bits.PPRE = 2;    // Primary   prescaler 1:1
+    SPI1CON1bits.SPRE = 0;     // Secondary prescaler 8:1
+    // Fsck = 40MHz / 32 = 1.2 MHz < 133 Mhz
     
     //SPI1STAT Register Settings
     SPI1CON1bits.MSTEN = 1;     // Master mode Enabled
     SPI1CON1bits.SMP = 0;       // W25Q64JV -> Sample on the falling edge a.k.a. "middle of the frame"
     SPI1STATbits.SPIEN = 1;     // Enable SPI module
     
+    
     // Interrupt Controller Settings
     IFS0bits.SPI1IF = 0; // Clear the Interrupt Flag
     IEC0bits.SPI1IE = 1; // Enable the Interrupt
+    
 }
 
 
-// Maybe setup as Slave ?
-// Or a trigger from the RPi that makes us communicate as a Master ?
+// Spi module for the ADC module
 inline void SetupSPI2Register(void) {
     IFS2bits.SPI2IF = 0; // Clear the Interrupt Flag
     IEC2bits.SPI2IE = 0; // Disable the Interrupt
@@ -173,7 +152,10 @@ inline void SetupSPI2Register(void) {
     SPI2CON1bits.SMP = 0;       // Input data is sampled at the middle of data
     SPI2CON1bits.CKE = 0;       // Serial output data changes on transition 
     SPI2CON1bits.CKP = 0;       // Idle state for clock is a low level; 
-    // (CKE, CKP) -> mode 0,0
+    
+    SPI1CON1bits.PPRE = 2;    // Primary   prescaler 1:1
+    SPI1CON1bits.SPRE = 0;     // Secondary prescaler 8:1
+    
     SPI2CON1bits.MSTEN = 1;     // Master mode Enabled
     
     //SPI1STAT Register Settings
@@ -264,10 +246,12 @@ int main(void) {
     ConnectSPI1ToFlash();
     
     // Verify spi
-    FlashID();
+    
     
     // Send Setup Instructions To Flash
     InitFlash();
+    
+    FlashID();
    
     // DEPRECATED : Setup the pins used by the SPI
     // SetupSPI1IOPins();
@@ -286,18 +270,10 @@ int main(void) {
     
     FlashRecvBuffer(addr, (char*)rcvBuffer, 5);
     
-    
-    Nop();
-    
-    
-
     for (;;)
     {
         Nop();
-        Nop();
     }
-    
-   
     
     return 0;
 }
