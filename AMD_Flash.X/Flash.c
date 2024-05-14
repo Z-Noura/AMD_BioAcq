@@ -33,7 +33,7 @@ void delay_30us(void){
 }
 
 void delay_us(uint16_t time){
-    // Setup the time as multiple of around 1 [µs]
+    // Setup the time as multiple of around 1 [Âµs]
     PR4 = 0x27*time;
     // Enable the timer
     T4CONbits.TON = 1;
@@ -173,3 +173,6 @@ inline void FlashInit(void) {
     FLASH_CE_PIN_WR = 1;
     delay_us(1);
 }
+
+
+// Librairie du protocole SPI de la flash 
