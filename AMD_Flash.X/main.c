@@ -272,3 +272,6 @@ int main(void) {
     
     return 0;
 }
+
+
+//Résumé du fichier main.c : Initialisation du dspic, de la flash et proof of concept (simple test). 
